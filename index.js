@@ -4,7 +4,7 @@ var httpProxy = require('http-proxy');
 var apiProxy = httpProxy.createProxyServer();
  
 app.all("/*", function(req, res) {
-apiProxy.web(req, res, {target: "https://theabbie.github.io"});
+apiProxy.web(req, res, {target: req.query.url});
 });
 
 app.listen(process.env.PORT);
